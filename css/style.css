@@ -85,3 +85,51 @@
     /* Short hand */
     place-self: stretch stretch;
 }
+
+/* 1. All children need to be given grid-area name 
+   2. Children need to be posiitoned in grid-area 
+   3. The elements must be a square or retangle = 4 corners
+   4. . means empty area
+   5. . can't be palced in between same section must be single section
+   6. All rows must have equal amount of cells.
+   */
+
+/* Grid Areas */
+
+.container3 {
+  grid-template-columns: repeat(4, 1fr) ;
+  grid-template-rows: auto;
+  grid-template-areas: 
+    "header header header sidebar"
+    "main-content main-content . sidebar"
+    "footer footer footer sidebar";
+
+    /*
+    gap- When assigning 1 value the value applies for both row and column.
+    */
+
+    gap: 10px; 
+}
+
+header {
+    background-color: tomato;
+    grid-area: header;
+
+}
+
+main {
+    background-color: wheat;
+    grid-area: main-content;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+aside {
+    background-color: lightcyan;
+    grid-area: sidebar;
+}
+
+footer {
+    background-color: lightskyblue;
+    grid-area: footer;
+}
